@@ -1,6 +1,4 @@
-//
-// Created by unifjtakeda on 15/09/2023.
-//
+
 #include <stdio.h>
 #include <string.h>
 #include "biblioteca.h"
@@ -22,6 +20,9 @@ int criarTarefa(ListaDeTarefas *lt) {
 
         printf("Digite a categoria:");
         scanf(" %[^\n]", lt->tarefas[lt->qtd].categoria);
+
+        printf("Digite o status da tarefa: ");
+        scanf(" %[^\n]", lt->tarefas[lt->qtd].status);
 
         printf("Tarefa adicionada com sucesso!\n");
     }
@@ -52,6 +53,7 @@ int ListarTarefa(ListaDeTarefas lt){
             printf("Descricao: %s\n", lt.tarefas[i].descricao);
             printf("Categoria: %s\n", lt.tarefas[i].categoria);
             printf("Prioridade: %d\n", lt.tarefas[i].prioridade);
+            printf("status: %d\n", lt.tarefas[i].status);
             printf("\n");
         }
     return 0;
@@ -77,4 +79,12 @@ int carregarLista(ListaDeTarefas *lt, char nome[]){ // "lê" as informações em
         fclose(f);
     }
     return 0;
+}
+
+int  EditarTarefas(ListaDeTarefas *lt){
+    int TarefaEscolida;
+    printf("informe a tarefa que deseja editar (0 a 99):");
+    scanf("%d", &TarefaEscolida);
+
+    for()
 }

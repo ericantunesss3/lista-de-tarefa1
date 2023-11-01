@@ -9,6 +9,7 @@ typedef struct  { // struct que mostra onde vai ser salvo cada tipo de conteudo
     char descricao[300];
     char categoria[100];
     int prioridade;
+    char status[15];
 }Tarefa;
 
 typedef struct{ // struct que armazenará cada tarefa
@@ -19,6 +20,7 @@ typedef struct{ // struct que armazenará cada tarefa
 int criarTarefa(ListaDeTarefas *lt);
 int DeletarTarefa(ListaDeTarefas *lt);
 int ListarTarefa(ListaDeTarefas lt);
+int EditarTarefas(ListaDeTarefas *lt);
 
 void printMenu();
 int salvarLista(ListaDeTarefas *lt, char nome[]);
