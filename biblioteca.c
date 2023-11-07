@@ -53,7 +53,7 @@ int ListarTarefa(ListaDeTarefas lt){
             printf("Descricao: %s\n", lt.tarefas[i].descricao);
             printf("Categoria: %s\n", lt.tarefas[i].categoria);
             printf("Prioridade: %d\n", lt.tarefas[i].prioridade);
-            printf("status: %d\n", lt.tarefas[i].status);
+            printf("status: %s\n", lt.tarefas[i].status);
             printf("\n");
         }
     return 0;
@@ -86,5 +86,47 @@ int  EditarTarefas(ListaDeTarefas *lt){
     printf("informe a tarefa que deseja editar (0 a 99):");
     scanf("%d", &TarefaEscolida);
 
-    for()
+    if(TarefaEscolida >= 0 && TarefaEscolida < lt->qtd) {
+        // Dados que serão editados
+        printf("editar a descrição (atual: %s): ",lt->tarefas[TarefaEscolida].descricao);
+        scanf(" %[^\n]", lt->tarefas[TarefaEscolida].descricao);
+
+        printf("Editar a prioridade (atual: %d): ", lt->tarefas[TarefaEscolida].prioridade);
+        scanf(" %d", &lt->tarefas[TarefaEscolida].prioridade);
+
+        printf("Editar a categoria (atual: %s): ", lt->tarefas[TarefaEscolida].categoria);
+        scanf(" %[^\n]", lt->tarefas[TarefaEscolida].categoria);
+
+        printf("Editar o status (atual: %s): ", lt->tarefas[TarefaEscolida].status);
+        scanf(" %[^\n]", lt->tarefas[TarefaEscolida].status);
+
+        printf("Tarefa editada com sucesso!\n");
+    } else {
+        printf("Tarefa com o índice %d não encontrada.\n", TarefaEscolida);
+    }
+    return 0;
 }
+
+void FiltrarPrioridade(ListaDeTarefas lt, int prioridadeDesejada) {
+    int encontrouTarefa = 0; // Variável para rastrear se alguma tarefa com a prioridade desejada foi encontrada
+
+    printf("Tarefas com prioridade %d:\n", prioridadeDesejada);
+
+    for (int i = 0; i < lt.qtd; i++) {
+        if (lt.tarefas[i].prioridade == prioridadeDesejada) {
+            printf("Tarefa %d\n", i);
+            printf("Descricao: %s\n", lt.tarefas[i].descricao);
+            printf("Categoria: %s\n", lt.tarefas[i].categoria);
+            printf("Prioridade: %d\n", lt.tarefas[i].prioridade);
+            printf("Status: %s\n", lt.tarefas[i].status);
+            printf("\n");
+            encontrouTarefa = 1; // Marca que pelo menos uma tarefa foi encontrada
+        }
+    }
+
+    if (!encontrouTarefa) {
+        printf("Nenhuma tarefa com prioridade %d encontrada.\n", prioridadeDesejada);
+    }
+}
+
+
