@@ -5,7 +5,7 @@
 
 void printMenu(){ // usada para printar o menu toda vez que acontece alguma ação no programa
     printf("\nGerenciador de Tarefas\n");
-    printf("Escolha a funcao:\n 1 Adicionar nova tarefa\n 2 Deletar tarefa\n 3 Listar tarefas\n 4 Editar tarefa\n 5 Sair\n");
+    printf("Escolha a funcao:\n 1 Adicionar nova tarefa\n 2 Deletar tarefa\n 3 Listar tarefas\n 4 Editar tarefa\n 5 filtrar tarefas por prioridade\n 6 sair\n");
 }
 
 
@@ -129,4 +129,24 @@ void FiltrarPrioridade(ListaDeTarefas lt, int prioridadeDesejada) {
     }
 }
 
+void Filtrarstatus(ListaDeTarefas lt, int prioridadeDesejada) {
+    int encontrouTarefa = 0; // Variável para rastrear se alguma tarefa com a prioridade desejada foi encontrada
 
+    printf("Tarefas com prioridade %d:\n", prioridadeDesejada);
+
+    for (int i = 0; i < lt.qtd; i++) {
+        if (lt.tarefas[i].prioridade == prioridadeDesejada) {
+            printf("Tarefa %d\n", i);
+            printf("Descricao: %s\n", lt.tarefas[i].descricao);
+            printf("Categoria: %s\n", lt.tarefas[i].categoria);
+            printf("Prioridade: %d\n", lt.tarefas[i].prioridade);
+            printf("Status: %s\n", lt.tarefas[i].status);
+            printf("\n");
+            encontrouTarefa = 1; // Marca que pelo menos uma tarefa foi encontrada
+        }
+    }
+
+    if (!encontrouTarefa) {
+        printf("Nenhuma tarefa com prioridade %d encontrada.\n", prioridadeDesejada);
+    }
+}
