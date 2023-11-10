@@ -11,7 +11,7 @@ int main() {
     int cod;
     char arquivo[] = "salvo.txt";
     int prioridadeDesejada;
-    char prioridadestatus;
+    char statusDesejada;
 
 
     cod = carregarLista(&lt, arquivo);// carrega o arquivo ao abrir o codigo
@@ -43,9 +43,9 @@ int main() {
             FiltrarPrioridade(lt, prioridadeDesejada);
         } 
         else if (opcao == 6){
-            printf("Digite a prioridade que deseja filtrar (0 a 10): ");
-            scanf("%d", &prioridadeDesejada);
-            FiltrarPrioridade(lt, prioridadeDesejada);
+            printf("Digite a status que deseja filtrar (0 a 10): ");
+            scanf("%c", &statusDesejada);
+            Filtrarstatus(lt, statusDesejada);
         }
 
     }while(opcao != 7); // permite que o usuário saia do programa

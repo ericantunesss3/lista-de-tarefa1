@@ -129,13 +129,13 @@ void FiltrarPrioridade(ListaDeTarefas lt, int prioridadeDesejada) {
     }
 }
 
-void Filtrarstatus(ListaDeTarefas lt, int prioridadeDesejada) {
+void Filtrarstatus(ListaDeTarefas lt, const char *statusDesejada) {
     int encontrouTarefa = 0; // Variável para rastrear se alguma tarefa com a prioridade desejada foi encontrada
 
-    printf("Tarefas com prioridade %d:\n", prioridadeDesejada);
+    printf("Tarefas com prioridade %c:\n", statusDesejada);
 
     for (int i = 0; i < lt.qtd; i++) {
-        if (lt.tarefas[i].prioridade == prioridadeDesejada) {
+        if  (strcmp(lt.tarefas[i].status, statusDesejada) == 0) {
             printf("Tarefa %d\n", i);
             printf("Descricao: %s\n", lt.tarefas[i].descricao);
             printf("Categoria: %s\n", lt.tarefas[i].categoria);
@@ -147,6 +147,6 @@ void Filtrarstatus(ListaDeTarefas lt, int prioridadeDesejada) {
     }
 
     if (!encontrouTarefa) {
-        printf("Nenhuma tarefa com prioridade %d encontrada.\n", prioridadeDesejada);
+        printf("Nenhuma tarefa com prioridade %d encontrada.\n", statusDesejada);
     }
 }
