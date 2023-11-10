@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "biblioteca.h"
 
 //Eric Antunes"
@@ -11,7 +12,7 @@ int main() {
     int cod;
     char arquivo[] = "salvo.txt";
     int prioridadeDesejada;
-    char statusDesejada;
+    char statusDesejada[20];
 
 
     cod = carregarLista(&lt, arquivo);// carrega o arquivo ao abrir o codigo
@@ -43,12 +44,18 @@ int main() {
             FiltrarPrioridade(lt, prioridadeDesejada);
         } 
         else if (opcao == 6){
-            printf("Digite a status que deseja filtrar (0 a 10): ");
-            scanf("%c", &statusDesejada);
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            printf("Digite o status desejado (em andamento, finalizada, nao iniciado\n-> ");
+            fgets(statusDesejada,20,stdin);
+            statusDesejada[strcspn(statusDesejada,"\n")] = '\0';
             Filtrarstatus(lt, statusDesejada);
         }
+        else if (opcao == 7){
+            FiltrarPrioridadeCategoria(lt);
+        }
 
-    }while(opcao != 7); // permite que o usuário saia do programa
+    }while(opcao != 8); // permite que o usuário saia do programa
 
     //Logica que salva todas as funções feitas dentro do arquivo
     cod = salvarLista(&lt, "salvo.txt");
