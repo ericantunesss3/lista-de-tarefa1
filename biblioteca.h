@@ -22,6 +22,8 @@ int DeletarTarefa(ListaDeTarefas *lt);
 int ListarTarefa(ListaDeTarefas lt);
 int EditarTarefas(ListaDeTarefas *lt);
 void FiltrarPrioridade(ListaDeTarefas lt, int prioridadeDesejada);
+void Filtrarstatus(ListaDeTarefas lt, const char *statusDesejada);
+
 
 void printMenu();
 int salvarLista(ListaDeTarefas *lt, char nome[]);
