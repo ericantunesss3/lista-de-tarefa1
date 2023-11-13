@@ -1,4 +1,4 @@
-
+//biblioteca.c final do codigo
 #include <stdio.h>
 #include <string.h>
 #include "biblioteca.h"
